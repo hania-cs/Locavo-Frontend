@@ -28,7 +28,7 @@ const BookCars = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('https://locavo.free.nf/webserback/getCar.php')
+        axios.get('http://locavo.onlinewebshop.net/webserback/getCar.php')
             .then(response => {
                 console.log(response.data); // Log the response for debugging
                 if (Array.isArray(response.data)) {
@@ -44,7 +44,7 @@ const BookCars = () => {
     }, []);
 
     const handleRentNow = (car) => {
-        axios.post('https://locavo.free.nf/webserback/rentCar.php', {
+        axios.post('http://locavo.onlinewebshop.net/webserback/rentCar.php', {
             car_id: car.id,
             user_id: 1 // Replace with the actual user ID
         })
@@ -66,7 +66,7 @@ const BookCars = () => {
     };
 
     const handleDeleteRent = (car) => {
-        axios.post('https://locavo.free.nf/webserback/deleteRent.php', {
+        axios.post('http://locavo.onlinewebshop.net/webserback/deleteRent.php', {
             car_id: car.id,
             user_id: 1 // Replace with the actual user ID
         })

@@ -24,7 +24,7 @@ const Login = ({ setIsLoggedIn }) => {
     event.preventDefault();
   
     try {
-      const response = await fetch('https://locavo.free.nf/webserback/login.php', {
+      const response = await fetch('http://locavo.onlinewebshop.net/webserback/login.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
