@@ -22,9 +22,9 @@ const Login = ({ setIsLoggedIn }) => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-
+  
     try {
-      const response = await fetch('http://localhost/webserback/login.php', {
+      const response = await fetch('https://locavo.free.nf/login.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -34,15 +34,21 @@ const Login = ({ setIsLoggedIn }) => {
           password: password,
         }),
       });
-
+  
       const data = await response.json();
       console.log('Login Response:', data); // Debugging statement
-
+  
       if (data.status === 'success') {
         Cookies.set('authToken', data.token, { expires: 7 }); // Set cookie
-        console.log('Redirecting to /rent-car'); // Debugging statement
+        console.log('Redirecting based on email'); // Debugging statement
         setIsLoggedIn(true); // Update login status
-        navigate('/rent-car');
+  
+        // Check if the logged-in user is the specific user
+        if (email === 'haniacs05@gmail.com') {
+          navigate('/admin');
+        } else {
+          navigate('/rent-car');
+        }
       } else {
         setError(data.message);
         toast({

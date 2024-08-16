@@ -22,11 +22,7 @@ const NavbarLinks = () => {
             {t("navbar.bookCars")}
           </Link>
         </li>
-        <li className="nav-item mx-2">
-          <Link className="nav-link" to="/admin">
-            Admin Page
-          </Link>
-        </li>
+        
        
       </ul>
     </div>

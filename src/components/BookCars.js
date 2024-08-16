@@ -12,7 +12,7 @@ import {
     Box,
     Image,
     Text,
-    VStack,
+   
     HStack
 } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
@@ -28,7 +28,7 @@ const BookCars = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get('http://localhost/webserback/getCar.php')
+        axios.get('https://locavo.free.nf/getCar.php')
             .then(response => {
                 console.log(response.data); // Log the response for debugging
                 if (Array.isArray(response.data)) {
@@ -44,7 +44,7 @@ const BookCars = () => {
     }, []);
 
     const handleRentNow = (car) => {
-        axios.post('http://localhost/webserback/rentCar.php', {
+        axios.post('https://locavo.free.nf/rentCar.php', {
             car_id: car.id,
             user_id: 1 // Replace with the actual user ID
         })
@@ -66,7 +66,7 @@ const BookCars = () => {
     };
 
     const handleDeleteRent = (car) => {
-        axios.post('http://localhost/webserback/deleteRent.php', {
+        axios.post('https://locavo.free.nf/deleteRent.php', {
             car_id: car.id,
             user_id: 1 // Replace with the actual user ID
         })
