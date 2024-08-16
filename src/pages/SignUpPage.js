@@ -24,7 +24,7 @@ const Signup = () => {
     console.log("Submitting signup form...");
 
     try {
-      const response = await fetch("https://locavo.free.nf/register.php", {
+      const response = await fetch("https://locavo.free.nf/webserback/register.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",

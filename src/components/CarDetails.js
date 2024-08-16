@@ -7,7 +7,7 @@ const CarDetails = () => {
     const [car, setCar] = useState(null);
 
     useEffect(() => {
-        axios.get(`https://locavo.free.nf/getCar.php?id=${id}`)
+        axios.get(`https://locavo.free.nf/webserback/getCar.php?id=${id}`)
             .then(response => {
                 setCar(response.data);
             })
@@ -19,7 +19,7 @@ const CarDetails = () => {
     const handleConfirmRent = () => {
         const user_id = 1; 
 
-        axios.post('https://locavo.free.nf/rentCar.php', { user_id, car_id: car.id })
+        axios.post('https://locavo.free.nf/webserback/rentCar.php', { user_id, car_id: car.id })
             .then(response => {
                 alert("Car rented successfully!");
                 window.location.href = '/';

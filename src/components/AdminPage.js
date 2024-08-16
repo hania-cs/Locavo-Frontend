@@ -39,7 +39,7 @@ const AdminPage = () => {
     }, []);
 
     const fetchCars = () => {
-        axios.get('https://locavo.free.nf/getCar.php')
+        axios.get('https://locavo.free.nf/webserback/getCar.php')
             .then(response => {
                 setCars(response.data);
             })
@@ -47,7 +47,7 @@ const AdminPage = () => {
     };
 
     const handleAddCar = () => {
-        axios.post('https://locavo.free.nf/addCar.php', carDetails)
+        axios.post('https://locavo.free.nf/webserback/addCar.php', carDetails)
             .then(() => {
                 fetchCars();
                 onClose();
@@ -57,7 +57,7 @@ const AdminPage = () => {
 
     // Edit existing car
     const handleEditCar = () => {
-        axios.post('https://locavo.free.nf/editCar.php', { ...carDetails, id: editingCar.id })
+        axios.post('https://locavo.free.nf/webserback/editCar.php', { ...carDetails, id: editingCar.id })
             .then(() => {
                 fetchCars();
                 onClose();
@@ -68,7 +68,7 @@ const AdminPage = () => {
 
     // Delete a car
     const handleDeleteCar = (id) => {
-        axios.post('https://locavo.free.nf/deleteCar.php', { id })
+        axios.post('https://locavo.free.nf/webserback/deleteCar.php', { id })
             .then(() => fetchCars())
             .catch(error => console.error("Error deleting car:", error));
     };
